@@ -43,9 +43,9 @@ const leaderboard = () => {
     ];
     return (
         
-        <div className="lead_body pb-12">
-            <h2 className='text-4xl pt-12 pb-12 font-mono'>Final LeaderBoard</h2>
-            <table id="table" className='border-2 border-cyan-200'>
+        <div className="lead_body pb-12 text-gray-200">
+            <h2 className='text-4xl pt-12 pb-12 font-mono text-cyan-300'>Final LeaderBoard</h2>
+            <table id="table" className='border-2 border-cyan-200 bg-[#111254b0]'>
                 <div class="table-section">
                     <tr class="header-row">
                         <th class="header-item items">RANK</th>
