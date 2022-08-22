@@ -64,7 +64,7 @@ const Ratings = () => {
         
       }).then((data) => {
         console.log(data);
-        navigate("/");
+        navigate("/selected-11");
       });
   };
 
@@ -94,7 +94,7 @@ const Ratings = () => {
                       {member.name}
                     </p>
                     <p className="card-post mt-2 text-gray-100 font-semibol text-xl">
-                      {Math.round(member.final_rating * 100) / 100}
+                      {Math.round(member.final_rating * 100) / 100} ± {Math.abs(member.dr)}
                     </p>{" "}
                     <br />
                     <p className="card-post text-fuchsia-500 font-semibold">

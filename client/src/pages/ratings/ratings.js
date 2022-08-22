@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import useFetch from "../useFetch";
 
 const Ratings = () => {
-  let totalPoints = 20;
+  let totalPoints = 200;
   const [playerArray, setPlayerArray] = useState([]);
   const [pointsLeft, setPointsLeft] = useState(totalPoints);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -115,6 +115,7 @@ const Ratings = () => {
                       name={member.name}
                       min="0"
                       max="10"
+                      step="1"
                       // value={member.rating}
                       placeholder="Rating"
                       className="pl-2 border-solid font-semibold mt-2 text-amber-300 w-[100px] text-center py-1 border-cyan-300 border-opacity-75   rounded-md"
