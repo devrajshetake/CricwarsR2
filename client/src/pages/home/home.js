@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import "./home.css";
 import bgcricwars3 from "../../assets/images/cricwarshomepage3.png";
 import bgcricwars1 from "../../assets/images/cricwarshomepage1.png";
 import bgcricwars2 from "../../assets/images/cricwarshomepage2.png";
@@ -33,7 +34,7 @@ const Home = () => {
 
   return (
     <div>
-      <div>
+      <div className="container relative ">
         <img
           className="homepage-background-img earth"
           src={bgcricwars3}
@@ -41,7 +42,8 @@ const Home = () => {
           // src={bgcricwars2}
           alt="homepage-background"
         />
-        {canRate && (
+
+        {/* {canRate && (
           <Link to="/ratings">
             <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
               Rate Players
@@ -61,7 +63,15 @@ const Home = () => {
               Create Team
             </button>
           </Link>
-        )}
+        )} */}
+        <Link to="/login">
+          <button
+            type="submit"
+            className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+          >
+            Click to Login
+          </button>
+        </Link>
       </div>
     </div>
   );
