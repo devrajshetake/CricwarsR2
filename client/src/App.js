@@ -10,57 +10,57 @@ import Teamformation from "./pages/teamformation/teamformation";
 import Ratings from "./pages/ratings/ratings";
 import Your11 from "./pages/your11/your11";
 import Leaderboard from "./pages/leaderboard/leaderboard";
+import Webteam from "./pages/webteam";
 import RatingChanges from "./pages/ratingchanges/ratingchanges";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
-    
-      <div>
+    <div>
+      {/* <Login /> */}
+      <BrowserRouter>
+        {/* <Navbar /> */}
         {/* <Login /> */}
-        <BrowserRouter>
-          {/* <Navbar /> */}
-          {/* <Login /> */}
-          {/* <Homepage /> */}
+        {/* <Homepage /> */}
 
-          {/* <Sidebar /> */}
-          {/* <ContactPanel /> */}
-          <Routes>
-            <Route exact path="/" element={<Homepage />} loader={<Loader />} />
-            <Route path="/login" element={<Login loader={<Loader />} />} />
-            <Route
-              path="/create-team"
-              element={<Teamformation />}
-              loader={<Loader />}
-            />
-            <Route path="/ratings" element={<Ratings />} loader={<Loader />} />
-            <Route
-              path="/selected-11"
-              element={<Your11 />}
-              loader={<Loader />}
-            />
-            <Route
-              path="/leaderboard"
-              element={<Leaderboard />}
-              loader={<Loader />}
-            />
-            <Route
-              path="/changes"
-              element={<RatingChanges />}
-              loader={<Loader />}
-            />
-            {/* <Route
+        {/* <Sidebar /> */}
+        {/* <ContactPanel /> */}
+        <Routes>
+          <Route exact path="/" element={<Homepage />} loader={<Loader />} />
+          <Route path="/login" element={<Login loader={<Loader />} />} />
+          <Route
+            path="/create-team"
+            element={<Teamformation />}
+            loader={<Loader />}
+          />
+          <Route
+            path="/web-team"
+            element={<Webteam />}
+            loader={<Loader />}
+          />
+          <Route path="/ratings" element={<Ratings />} loader={<Loader />} />
+          <Route path="/selected-11" element={<Your11 />} loader={<Loader />} />
+          <Route
+            path="/leaderboard"
+            element={<Leaderboard />}
+            loader={<Loader />}
+          />
+          <Route
+            path="/changes"
+            element={<RatingChanges />}
+            loader={<Loader />}
+          />
+          {/* <Route
             path="/event-details"
             element={<EventDetails />}
             loader={<Loader />}
           /> */}
-          </Routes>
+        </Routes>
 
-          <Footer />
-        </BrowserRouter>
-      </div>
-    
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 
