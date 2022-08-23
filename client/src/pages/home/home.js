@@ -2,6 +2,7 @@ import React, { Component, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./home.css";
+import xeniadark from "../../assets/images/Xeniadark.png";
 import bgcricwars3 from "../../assets/images/cricwarshomepage3.png";
 import bgcricwars1 from "../../assets/images/cricwarshomepage1.png";
 import bgcricwars2 from "../../assets/images/cricwarshomepage2.png";
@@ -42,40 +43,62 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container relative ">
-        <img
-          className="homepage-background-img earth"
-          src={bgcricwars3}
-          // src={bgcricwars1}
-          // src={bgcricwars2}
-          alt="homepage-background"
-        />
-
-        
-        {!isAuthenticated && <Link to="/login">
+      <div className="container-home">
+        <div>
+          <img
+            className="homepage-background-img relative "
+            // src={bgcricwars3}
+            src={bgcricwars1}
+            // src={bgcricwars2}
+            alt="homepage-background"
+          />
+        </div>
+        <div>
+          <img
+            classname="xeniadark pb-24 absolute px-48 py 12"
+            src={xeniadark}
+            alt="logo"
+          />
+        </div>
+        <Link to="/login">
           <button
             type="submit"
-            className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+            className="btn py-3  px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
           >
             Click to Login
           </button>
-        </Link>}
-        {canRate && <Link to="/ratings">
-          <button
-            type="submit"
-            className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
-          >
-            Rate Players
-          </button>
-        </Link>}
-        {canCreate && <Link to="/create-team">
-          <button
-            type="submit"
-            className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
-          >
-            Create Team
-          </button>
-        </Link>}
+        </Link>
+
+        {!isAuthenticated && (
+          <Link to="/login">
+            <button
+              type="submit"
+              className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+            >
+              Click to Login
+            </button>
+          </Link>
+        )}
+        {canRate && (
+          <Link to="/ratings">
+            <button
+              type="submit"
+              className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+            >
+              Rate Players
+            </button>
+          </Link>
+        )}
+        {canCreate && (
+          <Link to="/create-team">
+            <button
+              type="submit"
+              className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+            >
+              Create Team
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
