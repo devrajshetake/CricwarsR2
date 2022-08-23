@@ -18,7 +18,7 @@ const Webteam = () => {
               <div class=" h-96 w-64 shadow mt-16 bg-black bg-opacity-50 rounded-xl  hover:bg-blue-900 hover:bg-opacity-30">
                 <div class=" mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                   <img
-                    src="https://drive.google.com/uc?export=view&id=1nHQz2H5NPymPsprImVlZIn63yMVlwF2i"
+                    src="https://drive.google.com/uc?export=view&id=1LOq2Bb_04Yde_SfUtRs7AGZBekhnxony"
                     alt="Image"
                     class="object-cover object-center w-full h-full transition duration-1000 ease-in-out hover:-translate-y-1 hover:scale-125"
                   />
@@ -54,11 +54,11 @@ const Webteam = () => {
                 </div>
               </div>
             </a>
-            <a href="https://www.linkedin.com/in/yash-pande-1a5812206/" target="_blank">
+            <a href="https://www.linkedin.com/in/devraj-shetake-439606206/" target="_blank">
               <div class=" h-96 w-64 shadow mt-16 bg-black bg-opacity-50 rounded-xl  hover:bg-blue-900 hover:bg-opacity-30">
                 <div class=" mb-2 overflow-hidden rounded-lg shadow-lg md:h-80">
                   <img
-                    src="https://drive.google.com/uc?export=view&id=1nHQz2H5NPymPsprImVlZIn63yMVlwF2i"
+                    src="https://nth22.s3.ap-south-1.amazonaws.com/devraj.jpg"
                     alt="Image"
                     class="object-cover object-center w-full h-full transition duration-1000 ease-in-out hover:-translate-y-1 hover:scale-125"
                   />
@@ -66,10 +66,10 @@ const Webteam = () => {
 
                 <div class="flex flex-col items-center justify-center">
                   <div class="font-bold text-indigo-500 md:text-lg">
-                    Yash Pande
+                    Devraj Shetake
                   </div>
                   <p class="mb-3 text-sm text-cyan-500 md:text-base md:mb-4">
-                    Web Developer
+                    Backend Developer
                   </p>
 
                   <div class="text-white">

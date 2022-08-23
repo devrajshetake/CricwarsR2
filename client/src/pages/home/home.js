@@ -10,6 +10,7 @@ const Home = () => {
   const [canRate, setCanRate] = useState(false);
   const [canView, setCanView] = useState(false);
   const [canCreate, setCanCreate] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const fetchData = () => {
     console.log(localStorage.getItem("auth-token"));
     fetch("http://localhost:8000/users/me",{
@@ -28,7 +29,14 @@ const Home = () => {
       })
   }
 
+  const checkAuth = () => {
+    if(localStorage.getItem("auth-token") === null) setIsAuthenticated(false);
+    else setIsAuthenticated(true);
+  }
+
   useEffect(() => {
+    
+    checkAuth();
     fetchData();
   }, [])
 
@@ -43,35 +51,31 @@ const Home = () => {
           alt="homepage-background"
         />
 
-        {/* {canRate && (
-          <Link to="/ratings">
-            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              Rate Players
-            </button>
-          </Link>
-        )}
-        {canView && (
-          <Link to="/ratings">
-            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              View Ratings
-            </button>
-          </Link>
-        )}
-        {canCreate && (
-          <Link to="/create-team">
-            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              Create Team
-            </button>
-          </Link>
-        )} */}
-        <Link to="/login">
+        
+        {!isAuthenticated && <Link to="/login">
           <button
             type="submit"
             className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
           >
             Click to Login
           </button>
-        </Link>
+        </Link>}
+        {canRate && <Link to="/ratings">
+          <button
+            type="submit"
+            className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+          >
+            Rate Players
+          </button>
+        </Link>}
+        {canCreate && <Link to="/create-team">
+          <button
+            type="submit"
+            className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+          >
+            Create Team
+          </button>
+        </Link>}
       </div>
     </div>
   );
