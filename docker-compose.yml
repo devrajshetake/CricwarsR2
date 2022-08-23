@@ -10,19 +10,10 @@ services:
   frontend:
     build:
       context: ./client
+    command: npm start
     ports:
-      - "3000:3000"
+      - "3000:80"
     volumes:
       - react_build:/react/build
-  nginx:
-    image: nginx:latest
-    ports:
-      - 80:8080
-    volumes:
-      - ./nginx/nginx-setup.conf:/etc/nginx/conf.d/
-      - react_build:/var/www/react
-    depends_on:
-      - backend
-      - frontend
 volumes:
   react_build:
