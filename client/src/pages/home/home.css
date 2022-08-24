@@ -11,11 +11,13 @@
         top: 0;
         left: 0;
 }
- .xeniadark{
-/* z-index: 10; */
-position: absolute;
-    top: 60px;
-    left: 80px;
+
+ .xeniadark1{
+z-index: 10;
+/* position: absolute; */
+/* left: 1100px; */
+    /* top: 60px;
+    left: 80px; */
     /* white-space: nowrap; */
     /* overflow: hidden; */
     /* text-overflow: ellipsis; */
@@ -48,7 +50,7 @@ position: absolute;
                 /* width: 250px; */
         background-color: green;
         border-radius: 16px;
-        bottom: 200px;
+        bottom: 120px;
         white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;

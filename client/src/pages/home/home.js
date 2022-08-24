@@ -2,6 +2,8 @@ import React, { Component, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./home.css";
+import xeniadark1 from "../../assets/images/xeniaLogoFinal.png";
+import cricwars from "../../assets/images/cricwars1.png";
 import xeniadark from "../../assets/images/Xeniadark.png";
 import bgcricwars3 from "../../assets/images/cricwarshomepage3.png";
 import bgcricwars1 from "../../assets/images/cricwarshomepage1.png";
@@ -43,23 +45,27 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container-home">
-        <div>
+      <div className="container-home h-[100vh] w-[100%] ">
+        <div className="homepage-background-img relative">
           <img
-            className="homepage-background-img relative "
+            className="  "
             // src={bgcricwars3}
             src={bgcricwars1}
             // src={bgcricwars2}
             alt="homepage-background"
           />
         </div>
-        <div>
-          <img
-            classname="xeniadark pb-24 absolute px-48 py 12"
-            src={xeniadark}
-            alt="logo"
-          />
+        <div className="xeniadark1  ml-[800px] mr-12 absolute top-8 ">
+          <img classname="   " src={xeniadark} alt="logo" />{" "}
         </div>
+        <div className="presents font-serif text-4xl text-white z-50 absolute ml-[1100px] mr-12 italic top-48 ">
+          <p>presents</p>
+        </div>
+
+        <div className="xeniadark1  ml-[800px] mr-12 absolute top-16 ">
+          <img classname="   " src={cricwars} alt="logo" />{" "}
+        </div>
+
         <Link to="/login">
           <button
             type="submit"
