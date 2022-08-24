@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Navbarnew.css";
 
 const Navbarnew = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const [username,setUsername] = useState(null);
+
+  const fetchData = () => {
+    console.log(localStorage.getItem("auth-token"));
+    fetch("http://localhost:8000/users/me",{
+      method: "GET",
+      headers: { "content-type": "application/json", "Authorization":`Token ${localStorage.getItem("auth-token")}` },
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        // console.log(data)
+        setUsername(data.username);
+        // setPlayerArray(data)
+      })
+  }
+
+  useEffect(() => {
+    
+    // checkAuth();
+    fetchData();
+  }, [])
 
   return (
     <div className="navbar-wrapper">
@@ -37,10 +60,10 @@ const Navbarnew = () => {
                 class="insaan rounded "
                 src="https://avataaars.io/?avatarStyle=Circle&topType=WinterHat3&accessoriesType=Round&hatColor=Black&facialHairType=MoustacheMagnum&facialHairColor=Brown&clotheType=GraphicShirt&clotheColor=Heather&graphicType=Pizza&eyeType=Default&eyebrowType=UpDown&mouthType=Serious&skinColor=Tanned"
               />
-              <h2 class="title title-medium pt-8">Devraj Shetake</h2>
+              {username && <h2 class="title title-medium pt-8">{username}</h2>}
             </div>
             <ul class="navmenu pt-8 text-justify">
-              <li class="navmenu-item text-xl font-semibold hover:text-cyan-400  pb-4">
+              {username && <li class="navmenu-item text-xl font-semibold hover:text-cyan-400  pb-4">
                 <Link
                   to={"/"}
                   onClick={() => setNavOpen(false)}
@@ -51,21 +74,10 @@ const Navbarnew = () => {
                   </span>
                   Home
                 </Link>
-              </li>
-              <li class="navmenu-item text-xl font-semibold hover:text-cyan-400  pb-4">
-                <Link
-                  to={"/ratings"}
-                  onClick={() => setNavOpen(false)}
-                  style={{ textDecoration: "none" }}
-                >
-                  <span className="fa-li">
-                    <i className="fas fa-home"></i>
-                  </span>
-                  Ratings
-                </Link>
-              </li>
+              </li>}
+              
 
-              <li class="navmenu-item text-xl font-semibold hover:text-cyan-400  pb-4">
+              {username && <li class="navmenu-item text-xl font-semibold hover:text-cyan-400  pb-4">
                 <Link
                   to={"/selected-11"}
                   onClick={() => setNavOpen(false)}
@@ -76,8 +88,8 @@ const Navbarnew = () => {
                   </span>
                   My 11
                 </Link>
-              </li>
-              <li class="navmenu-item text-xl font-semibold hover:text-cyan-400  pb-4">
+              </li>}
+              {/* {username && <li class="navmenu-item text-xl font-semibold hover:text-cyan-400  pb-4">
                 <Link
                   to={"/leaderboard"}
                   onClick={() => setNavOpen(false)}
@@ -88,10 +100,9 @@ const Navbarnew = () => {
                   </span>
                   Leaderboard
                 </Link>
-              </li>
-              <li class="navmenu-item text-xl font-semibold hover:text-red-500">
-                <Link
-                  to={"/"}
+              </li>} */}
+              {username && <li class="navmenu-item text-xl font-semibold hover:text-red-500">
+                <a href={"/login"}
                   onClick={() => setNavOpen(false)}
                   style={{ textDecoration: "none" }}
                 >
@@ -99,8 +110,8 @@ const Navbarnew = () => {
                     <i className="fas fa-home"></i>
                   </span>
                   Logout
-                </Link>
-              </li>
+                </a>
+              </li>}
             </ul>
           </nav>
         </div>
