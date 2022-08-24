@@ -11,7 +11,7 @@ class MyUserAdmin(UserAdmin):
     model = User
 
     fieldsets = UserAdmin.fieldsets + (
-            (None, {'fields': ('groupr2', 'canAccessFinalRatings', 'canSelectTeam')}),
+            (None, {'fields': ('groupr2', 'canAccessFinalRatings', 'canSelectTeam', 'canRatePlayers')}),
     )
 
 admin.site.register(User,MyUserAdmin)

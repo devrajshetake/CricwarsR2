@@ -92,3 +92,13 @@ class UserView(APIView):
             return Response(serializer.data)
         return Response({"status":"Auth details not provided"})
 
+class EmergencyView(APIView):
+    def post(self, request):
+        try:
+            grp = GroupR2.objects.get(name = request.data['name'])
+        except:
+            return Response({"status" : "Grp not found"})
+        print(grp)
+
+        return Response({"status" : "hehe"})
+
