@@ -1,8 +1,28 @@
-.container {
-    position: relative;
+.container-home {
+    /* position: relative; */
     width: 100%;
 }
 
+.homepage-background-img{
+    /* z-index: 1; */
+    height: 100vh;
+    width: 100%;
+    position: relative;
+        top: 0;
+        left: 0;
+}
+
+ .xeniadark1{
+z-index: 10;
+/* position: absolute; */
+/* left: 1100px; */
+    /* top: 60px;
+    left: 80px; */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    /* left: 1100px;          */
+}
 /* Make the image responsive */
 /* .container img {
     width: 100%;
@@ -10,8 +30,8 @@
 } */
 
 /* Style the button and place it in the middle of the container/image */
-.container .btn {
-    position: absolute;
+.container-home .btn {
+    /* position: absolute; */
     /* top: 75%;
     left: 50%; */
     /* transform: translate(-50%, -50%);
@@ -30,10 +50,10 @@
                 /* width: 250px; */
         background-color: green;
         border-radius: 16px;
-        bottom: 95px;
+        bottom: 120px;
         white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        right: 270px;
+        left: 1100px;
         /* width: 100px; */
 }

@@ -1,6 +1,7 @@
 // import PreLoader from "./components/preloader";
 import Loader from "./components/loader";
 import Navbar from "./components/navbar";
+import Navbarnew from "./components/Navbarnew";
 import Homepage from "./pages/home/home";
 import Login from "./pages/login/login";
 import Footer from "./components/footer";
@@ -20,7 +21,7 @@ function App() {
     <div>
       {/* <Login /> */}
       <BrowserRouter>
-        {/* <Navbar /> */}
+        <Navbarnew />
         {/* <Login /> */}
         {/* <Homepage /> */}
 
