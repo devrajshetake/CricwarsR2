@@ -11,6 +11,7 @@ import bgcricwars2 from "../../assets/images/cricwarshomepage2.png";
 const Home = () => {
 
   const [canRate, setCanRate] = useState(false);
+  const [username, setUsername] = useState(null);
   const [canView, setCanView] = useState(false);
   const [canCreate, setCanCreate] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -36,6 +37,8 @@ const Home = () => {
     if(localStorage.getItem("auth-token") === null) setIsAuthenticated(false);
     else setIsAuthenticated(true);
   }
+
+
 
   useEffect(() => {
     
@@ -69,7 +72,7 @@ const Home = () => {
         <Link to="/login">
           <button
             type="submit"
-            className="btn py-3  px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+            className="btn py-3 z-50  px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
           >
             Click to Login
           </button>
@@ -79,7 +82,7 @@ const Home = () => {
           <Link to="/login">
             <button
               type="submit"
-              className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+              className="btn py-3 z-50 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
             >
               Click to Login
             </button>
@@ -89,7 +92,7 @@ const Home = () => {
           <Link to="/ratings">
             <button
               type="submit"
-              className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+              className="btn py-3 z-50 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
             >
               Rate Players
             </button>
@@ -99,7 +102,7 @@ const Home = () => {
           <Link to="/create-team">
             <button
               type="submit"
-              className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+              className="btn py-3 z-50 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
             >
               Create Team
             </button>

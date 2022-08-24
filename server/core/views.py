@@ -98,6 +98,8 @@ class EmergencyView(APIView):
             grp = GroupR2.objects.get(name = request.data['name'])
         except:
             return Response({"status" : "Grp not found"})
+
+        players = Player.objects.filter(groupr2=grp).update(final_rating=0)
         print(grp)
 
         return Response({"status" : "hehe"})

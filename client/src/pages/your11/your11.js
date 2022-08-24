@@ -5,6 +5,7 @@ const Your11 = () => {
 
   const [playerArray,setPlayerArray] = useState([]);
   const [finalScore, setFinalScore] = useState(0);
+  const [noTeamMessage, setMessage] = useState(null);
 
   const fetchData = () => {
     fetch("http://localhost:8000/create-team/", {
@@ -16,6 +17,7 @@ const Your11 = () => {
       .then(data => {
         console.log(data)
         setPlayerArray(data)
+        if(playerArray.length === 0) setMessage("You have not selected your team yet.")
         return data;
       }).then((data) => {
         calculateScore(data);
@@ -33,6 +35,7 @@ const Your11 = () => {
     }
     )
     setFinalScore(count)
+    
 
     
   }
@@ -51,9 +54,12 @@ const Your11 = () => {
   return (
     <body>
       <div className="text-center">
-        <h1 className="text-cyan-300 text-3xl   text-center pt-12 font-mono">
+        {!noTeamMessage && <h1 className="text-cyan-300 text-3xl   text-center pt-12 font-mono">
           Your Selected 11:  Score : {finalScore}
-        </h1>
+        </h1>}
+        {noTeamMessage && <h1 className="text-cyan-300 text-3xl   text-center pt-12 font-mono">
+          {noTeamMessage}
+        </h1>}
         <div className="container  ">
           <form onSubmit={handleSubmit} method="POST">
             <div className=" ">
