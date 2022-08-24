@@ -144,3 +144,7 @@ REST_FRAMEWORK = {
 
 # CORS Setting
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+# Deployment error -- safiya
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
