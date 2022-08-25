@@ -17,8 +17,7 @@ const Login = () => {
   }
   useEffect(() => {
     // authRedirect();
-    localStorage.removeItem("auth-token")
-    localStorage.removeItem("username")
+    
   },
     []
   )

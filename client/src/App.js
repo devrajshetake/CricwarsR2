@@ -15,6 +15,7 @@ import Webteam from "./pages/webteam";
 import RatingChanges from "./pages/ratingchanges/ratingchanges";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Logout from "./pages/logout/logout";
 
 function App() {
   return (
@@ -50,6 +51,11 @@ function App() {
           <Route
             path="/changes"
             element={<RatingChanges />}
+            loader={<Loader />}
+          />
+          <Route
+            path="/logout"
+            element={<Logout />}
             loader={<Loader />}
           />
           {/* <Route

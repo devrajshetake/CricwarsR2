@@ -21,4 +21,5 @@ urlpatterns = [
     path('create-team/', TeamView.as_view(), name = 'create-team'),
     path('users/me', UserView.as_view(), name = 'profile'),
     path('emergency/', EmergencyView.as_view(), name = 'emer'),
+    path('leaderboard/', LeaderboardView.as_view(), name = 'leaderboard'),
 ]

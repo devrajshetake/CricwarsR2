@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 # Create your models here.
 
@@ -28,6 +29,8 @@ class User(AbstractUser):
     canAccessFinalRatings = models.BooleanField(default=False)
     canSelectTeam = models.BooleanField(default=False)
     canRatePlayers = models.BooleanField(default=True)
+    update_time = models.DateTimeField(auto_now=True)
+    score = models.FloatField(default=0)
 
     def __str__(self):
         return self.username

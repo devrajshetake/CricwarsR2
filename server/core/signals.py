@@ -21,4 +21,10 @@ def compute_score(sender, instance, created, **kwargs):
     for player in players:
         score += (player.final_rating + player.dr)
     # cant use save as recursion
-    Team.objects.filter(id=instance.id).update(total_score=score)
+    user = instance.user
+    print(score, "called")
+    print(user)
+
+    user.score = score
+    user.save()
+    Team.objects.filter(id=instance.id).update(total_score=round(score,2))

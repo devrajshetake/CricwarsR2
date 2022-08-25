@@ -14,7 +14,7 @@ const Home = () => {
   const [username, setUsername] = useState(null);
   const [canView, setCanView] = useState(false);
   const [canCreate, setCanCreate] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const fetchData = () => {
     console.log(localStorage.getItem("auth-token"));
     fetch("http://localhost:8000/users/me",{
@@ -34,16 +34,19 @@ const Home = () => {
   }
 
   const checkAuth = () => {
-    if(localStorage.getItem("auth-token") === null) setIsAuthenticated(false);
-    else setIsAuthenticated(true);
+    if(localStorage.getItem("auth-token") !== null) setIsLoggedIn(true);
+    else setIsLoggedIn(false);
+    console.log(localStorage.getItem("auth-token"),"hehehhehe")
+    console.log(isLoggedIn)
   }
 
 
 
   useEffect(() => {
     
-    checkAuth();
     fetchData();
+    checkAuth();
+    console.log(localStorage.getItem("auth-token"),"thishkjbj")
   }, [])
 
   return (
@@ -69,16 +72,16 @@ const Home = () => {
           <img classname="   " src={cricwars} alt="logo" />{" "}
         </div>
 
-        <Link to="/login">
+        {/* <Link to="/login">
           <button
             type="submit"
             className="btn py-3 z-50  px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
           >
             Click to Login
           </button>
-        </Link>
+        </Link> */}
 
-        {!isAuthenticated && (
+        {!isLoggedIn && (
           <Link to="/login">
             <button
               type="submit"

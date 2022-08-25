@@ -37,13 +37,15 @@ const Ratings = () => {
 
   const updateBudgetPlayers = (e,member) => {
     if(e.target.checked){ 
-      setBudget(budget-member.price);
+      // setBudget(budget-member.price);
+      setBudget(Math.round((budget-member.price) * 100) / 100);
       setPlayerCount(playerCount + 1);
     }
     else {
-      setBudget(budget+member.price);
+      setBudget(Math.round((budget+member.price) * 100) / 100);
       setPlayerCount(playerCount - 1);
     }
+    // setBudget(Math.round(budget * 100) / 100)
     console.log(playerCount + "Player count")
     
   }

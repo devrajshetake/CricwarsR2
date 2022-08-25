@@ -102,7 +102,7 @@ const Navbarnew = () => {
                 </Link>
               </li>} */}
               {username && <li class="navmenu-item text-xl font-semibold hover:text-red-500">
-                <a href={"/login"}
+                <a href={"/logout"}
                   onClick={() => setNavOpen(false)}
                   style={{ textDecoration: "none" }}
                 >

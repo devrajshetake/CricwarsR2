@@ -1,46 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import "./leaderboard.css"
-const leaderboard = () => {
-    const participants = [
-        {
-            ParticipantsName: "Participants1",
+const Leaderboard = () => {
+    const [users,setUsers] = useState(null)
 
-            Ratings: "97.5",
-            number: "1"
+    const fetchData = () => {
+        console.log(localStorage.getItem("auth-token"));
+        fetch("http://localhost:8000/leaderboard/",{
+          method: "GET",
+          headers: { "content-type": "application/json", "Authorization":`Token ${localStorage.getItem("auth-token")}` },
+        })
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            console.log(data, "hgejhghfyd")
+            setUsers(data);
+            // setPlayerArray(data)
+          })
+      }
 
-        },
-        {
-            ParticipantsName: "Participants2",
-            Ratings: "97.5",
-            number: "2"
-
-        },
-        {
-            ParticipantsName: "Participants3",
-            Ratings: "97.5",
-            number: "3"
-
-        },
-        {
-            ParticipantsName: "Participants4 ",
-            Ratings: "97.5",
-            number: "4"
-
-        },
-        {
-            ParticipantsName: "Participants5",
-            Ratings: "97.5",
-            number: "5"
-
-        },
-        {
-            ParticipantsName: "Participants6",
-            Ratings: "97.5",
-            number: "6"
-
-
-        },
-    ];
+      useEffect(() => {
+        fetchData();
+        
+      },
+        []
+      )
     return (
         
         <div className="lead_body pb-12 text-gray-200">
@@ -49,18 +33,18 @@ const leaderboard = () => {
                 <div class="table-section">
                     <tr class="header-row">
                         <th class="header-item items">RANK</th>
-                        <th class="header-item items">PARTICIPANT NAME</th>
+                        <th class="header-item items">Username</th>
                         <th class="header-item items">TOTAL RATINGS</th>
                     </tr>
 
 
 
-                    {participants.map((member, i) => (
+                    {users && users.map((member, i) => (
                         
                             <tr class="table-rows " key={`member${i}`}>
-                                <td class="items">{member.number}</td>
-                                <td class="items">{member.ParticipantsName}</td>
-                                <td class="items ">{member.Ratings}</td>
+                                <td class="items">{i + 1}</td>
+                                <td class="items">{member.username}</td>
+                                <td class="items ">{member.score}</td>
                             </tr>
                     
                     ))}
@@ -72,4 +56,4 @@ const leaderboard = () => {
 }
 
 
-export default leaderboard
+export default Leaderboard

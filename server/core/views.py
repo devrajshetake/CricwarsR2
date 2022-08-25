@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework import generics, viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+import datetime
 
 
 # class UserView(APIView):
@@ -59,9 +60,12 @@ class TeamView(APIView):
             for id in players:
                 player = get_object_or_404(Player, pk = id)
                 player.teams.add(team)
+            
             team.save() # Jugaad for signal
 
         user.canSelectTeam = False
+        user.update_time = datetime.datetime.now()
+        user.score = Team.objects.get(user=user).total_score
         user.save()
 
         return Response({"status":"hehe"})
@@ -103,4 +107,17 @@ class EmergencyView(APIView):
         print(grp)
 
         return Response({"status" : "hehe"})
+
+class LeaderboardView(APIView):
+    def get(self, request):
+        authentication_classes = [TokenAuthentication]
+        permission_classes = [IsAuthenticated]
+
+        if request.user.is_authenticated:
+            grp = request.user.groupr2
+            users = User.objects.filter(groupr2=grp).order_by('-score','update_time')
+            serializer = UserSerializer(users,many = True)
+            return Response(serializer.data)
+
+        return Response({"status" : "Not Authenticated"})
 

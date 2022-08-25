@@ -30,11 +30,11 @@ const Your11 = () => {
   const calculateScore = (data) => {
     let count = 0
     data.map((player,i) => {
-
-      count += player.final_rating;
+      console.log(player.final_rating)
+      count += player.final_rating + player.dr;
     }
     )
-    setFinalScore(count)
+    setFinalScore(Math.round((count) * 100) / 100)
     
 
     
@@ -54,16 +54,16 @@ const Your11 = () => {
   return (
     <body>
       <div className="text-center">
-        {!noTeamMessage && <h1 className="text-cyan-300 text-3xl   text-center pt-12 font-mono">
+        {playerArray && <h1 className="text-cyan-300 text-3xl   text-center pt-12 font-mono">
           Your Selected 11:  Score : {finalScore}
         </h1>}
-        {noTeamMessage && <h1 className="text-cyan-300 text-3xl   text-center pt-12 font-mono">
+        {/* {noTeamMessage && <h1 className="text-cyan-300 text-3xl   text-center pt-12 font-mono">
           {noTeamMessage}
-        </h1>}
+        </h1>} */}
         <div className="container  ">
           <form onSubmit={handleSubmit} method="POST">
             <div className=" ">
-              {playerArray.map((member, i) => (
+              {playerArray && playerArray.map((member, i) => (
                 <div
                   key={`member${i}`}
                   className="card transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110  p-3  inline-block ml-12 mr-8 mt-8 cursor-pointer rounded-xl"
