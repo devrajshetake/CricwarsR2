@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="w-full p-4 py-8 md:p-16 bg-black bg-opacity-50  ">
+    <div className="w-full p-4 py-8 md:p-16 mt-16 bg-black bg-opacity-50  ">
       <div className="grid md:grid-cols-3">
         <div className="w-full">
           <img className="xenialogo mx-auto" src={xenialogo}></img>
         </div>
-        <div className=" col-span-2 pt-4 px-4 py-4 md:p-16 text-white text-sm md:text-base bg-[#060a4aa2]">
+        <div className=" col-span-2 pt-4 px-4 py-4 md:p-16  text-white text-sm md:text-base bg-[#060a4aa2]">
           <div className=" grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 ">
             <div className="w-full space-y-4">
               <div className="font-bold pb-2 border-b border-gray-400 text-purple-400">

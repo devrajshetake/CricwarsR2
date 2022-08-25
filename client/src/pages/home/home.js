@@ -51,7 +51,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container-home h-[100vh] w-[100%] ">
+      <div className="container-home  ">
         <div className="homepage-background-img relative">
           <img
             className="  "
@@ -68,7 +68,7 @@ const Home = () => {
           <p>presents</p>
         </div>
 
-        <div className="xeniadark1  ml-[800px] mr-12 absolute top-16 ">
+        <div className="cricwars  ml-[800px] mr-12 absolute top-16 ">
           <img classname="   " src={cricwars} alt="logo" />{" "}
         </div>
 
@@ -105,7 +105,7 @@ const Home = () => {
           <Link to="/create-team">
             <button
               type="submit"
-              className="btn py-3 z-50 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
+              className="btn py-3 px-8 hover:text-teal-200 inline-block text-lg absolute text-center  text-white bg-gradient-to-r from-blue-400 via-purple-500 to-violet-400 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800   "
             >
               Create Team
             </button>

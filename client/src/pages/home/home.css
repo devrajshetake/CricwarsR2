@@ -57,3 +57,22 @@ z-index: 10;
         left: 1100px;
         /* width: 100px; */
 }
+
+
+.xeniadark1 {
+    animation: glow 4000ms infinite alternate-reverse;
+}
+
+@keyframes glow {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.5);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
